@@ -3,7 +3,6 @@
 ## Overview
 A FastAPI application to aggregate and interact with various microservices. It includes health check endpoints, event and group management, and demonstrations of synchronous and asynchronous calls.
 
---- 
 
 ## Endpoints
 
