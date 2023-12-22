@@ -72,22 +72,22 @@ async def delete_event(event_id: str):
 # Group Service Endpoints
 @app.post("/groups/create")
 async def create_group(group_data: GroupModel):
-    response = requests.post(f"{GROUP_SERVICE_URL}/api/groups/create", json=group_data)
+    response = requests.post(f"{GROUP_SERVICE_URL}/groups/create", json=group_data.model_dump())
     return handle_response(response)
 
 @app.get("/groups/{group_id}")
 async def get_group(group_id: str):
-    response = requests.get(f"{GROUP_SERVICE_URL}/api/groups/{group_id}")
+    response = requests.get(f"{GROUP_SERVICE_URL}/groups/{group_id}")
     return handle_response(response)
 
 @app.put("/groups/update/{group_id}")
 async def update_group(group_id: str, group_data: dict = Body(...)):
-    response = requests.put(f"{GROUP_SERVICE_URL}/api/groups/update/{group_id}", json=group_data)
+    response = requests.put(f"{GROUP_SERVICE_URL}/groups/update/{group_id}", json=group_data)
     return handle_response(response)
 
 @app.delete("/groups/delete/{group_id}")
 async def delete_group(group_id: str):
-    response = requests.delete(f"{GROUP_SERVICE_URL}/api/groups/delete/{group_id}")
+    response = requests.delete(f"{GROUP_SERVICE_URL}/groups/delete/{group_id}")
     return handle_response(response)
 
 def handle_response(response):
