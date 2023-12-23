@@ -81,8 +81,8 @@ async def get_group(group_id: str):
     return handle_response(response)
 
 @app.put("/groups/update/{group_id}")
-async def update_group(group_id: str, group_data: dict = Body(...)):
-    response = requests.put(f"{GROUP_SERVICE_URL}/groups/update/{group_id}", json=group_data)
+async def update_group(group_id: str, group_data: GroupModel):
+    response = requests.put(f"{GROUP_SERVICE_URL}/groups/update/{group_id}", json=group_data.model_dump())
     return handle_response(response)
 
 @app.delete("/groups/delete/{group_id}")
